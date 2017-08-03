@@ -1,9 +1,22 @@
 <div class="container">
   <h1 class="text-center">Calendar</h1>
-
   <div id="articles">
-    <%= calendar do |date| %>
+
+    <h2 id= "month">
+      <%= link_to "<", date: @date.prev_month %>
+      <%= @date.strftime( "%B %Y") %>
+      <%= link_to ">", date: @date.next_month %>
+    </h2>
+
+    <%= calendar @date do |date| %>
       <%= date.day %>
+      <% if @articles_by_date[date] %>
+        <ul>
+          <% @articles_by_date[date].each do |article| %>
+            <li><%= article.title %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %> 
   </div>
 </div>
