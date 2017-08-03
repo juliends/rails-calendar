@@ -18,6 +18,7 @@ gem 'uglifier'
 
 group :development, :test do
   gem 'better_errors'
+  gem 'faker'
   gem 'binding_of_caller'
   gem 'listen', '~> 3.0.5'
   gem 'pry-byebug'
