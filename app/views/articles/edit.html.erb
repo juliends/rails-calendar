@@ -2,7 +2,7 @@
   <div class="text-center">
     <%= simple_form_for(@article) do |f| %>
       <%= f.input :title %>
-      <%= f.input :date, as: :string, input_html: { class: 'datepicker' } %>
+      <%= f.input :date, as: :string, input_html: { class: 'datepicker', value:  @article.date.strftime("%d/%m/%Y") } %>
       <%= f.submit %>
     <% end %>
   </div>
