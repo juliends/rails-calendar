@@ -11,14 +11,14 @@
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
-      var dateStr = '<%= @article.date_to_string_day_month_year %>';
+      var dateStr = '<%= @article.date.strftime('%m/%d/%Y') %>';
       console.log(dateStr);
       console.log(typeof(dateStr));
       $('.datepicker').datepicker({
         format: 'dd/mm/yyyy',
         todayHighlight: true
       });
-      $(".datepicker").datepicker("update", new Date());
+      $(".datepicker").datepicker("update", new Date(dateStr));
     });
   <% end %>
 <% end %>

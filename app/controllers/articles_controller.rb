@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    raise
+    @article.update(date: Date.parse(params[:article][:date]))
+    redirect_to root_path
   end
 end
