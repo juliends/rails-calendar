@@ -2,7 +2,7 @@
   <div class="text-center">
     <%= simple_form_for(@article) do |f| %>
       <%= f.input :title %>
-      <%= f.input :date, as: :string, input_html: { class: 'datepicker', value:  @article.date.strftime("%d/%m/%Y") } %>
+      <%= f.input :date, as: :string, input_html: { class: 'datepicker', value:  @article.date_to_string_day_month_year } %>
       <%= f.submit %>
     <% end %>
   </div>
@@ -11,7 +11,11 @@
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
+      var dateStr = '<%= @article.date_to_string_day_month_year %>';
+      console.log(dateStr);
+      console.log(typeof(dateStr));
       $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
         todayHighlight: true
       });
       $(".datepicker").datepicker("update", new Date());
