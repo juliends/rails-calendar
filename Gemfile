@@ -16,6 +16,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+gem 'jquery-ui-rails'
 source "https://rails-assets.org" do
   gem 'rails-assets-bootstrap-datepicker'
 end
