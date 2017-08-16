@@ -11,9 +11,9 @@
     <%= calendar @date do |date| %>
       <%= date.day %>
       <% if @articles_by_date[date] %>
-        <ul>
+        <ul id="articles">
           <% @articles_by_date[date].each do |article| %>
-            <li><%= link_to article.title, edit_article_path(article) %></li>
+            <li id="article_<%= article.id %>"><%= link_to article.title, edit_article_path(article) %></li>
           <% end %>
         </ul>
       <% end %>
