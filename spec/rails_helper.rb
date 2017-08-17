@@ -35,11 +35,22 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
 
   # Database_cleaner_config
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
   config.before(:each, js: true) do
     DatabaseCleaner.strategy = :truncation
+  end
+  # This block must be here, do not combine with the other `before(:each)` block.
+  # This makes it so Capybara can see the database.
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
