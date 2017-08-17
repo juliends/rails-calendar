@@ -33,5 +33,5 @@ group :development, :test do
   gem "database_cleaner"
   gem "rspec-rails"
   gem "capybara"
-  gem "selenium-webdriver"
+  gem 'poltergeist'
 end
