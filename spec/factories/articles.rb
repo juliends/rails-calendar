@@ -5,11 +5,11 @@ FactoryGirl.define do
     sequence(:date) { |n| Date.today + n }
 
     trait :unpublished do
-      published false
+      status 0
     end
 
     trait :published do
-      published true
+      status 1
     end
   end
 end

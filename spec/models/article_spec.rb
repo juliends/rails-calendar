@@ -18,7 +18,7 @@ RSpec.describe Article, type: :model do
   end
 
   it "is not valid without a status" do
-    { build(:article) :unpublished}
+    subject.status = nil
     expect(subject).to_not be_valid
   end
 end
