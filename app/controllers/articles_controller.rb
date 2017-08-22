@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
   
   def index
-    raise
     @articles = Article.published
     @articles_by_date = @articles.group_by(&:date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
