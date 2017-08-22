@@ -26,12 +26,10 @@ RSpec.describe Article, type: :model do
 
   describe 'Enum' do
     it "is found by published_scope if article is published" do
-      expect(Article.published).to include subject
+      expect(Article.published).not_to include subject
     end
-    it { expect(Article.unpublished).not_to include subject }
-    
-    let(:unpublished_article) { build :article, :unpublished }
-    it { expect(Article.unpublished).to include unpublished_article }
-    it { expect(Article.published).not_to include unpublished_article }
+    it "is found by unpublished_scope if article is unpublished" do 
+      expect(Article.unpublished).to include subject 
+    end
   end
 end
