@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+
+  validates :title, :date, presence: true
   scope :published, -> { where(published: true) }
 
   # def self.published
