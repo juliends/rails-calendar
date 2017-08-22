@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20170814131636) do
     t.string   "title"
     t.text     "content"
     t.date     "date"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "published",  default: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "status",     default: 0
   end
 
 end

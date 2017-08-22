@@ -1,5 +1,10 @@
 class Article < ApplicationRecord
-  scope :published, -> { where(published: true) }
+
+  validates :title, :date, :status, presence: true
+
+  enum status: { unpublished: 0, published: 1 }
+
+  # scope :published, -> { where(published: true) }
 
   # def self.published
   #   where(published: true)
