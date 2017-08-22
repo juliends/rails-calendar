@@ -5,6 +5,6 @@ Article.destroy_all
     title: Faker::Hipster.sentence, 
     content: Faker::Lorem.paragraph, 
     date: Date.today + i, 
-    published: [true, false].sample
+    status: [0, 1].sample
   )
 end
