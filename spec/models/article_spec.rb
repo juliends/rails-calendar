@@ -16,4 +16,9 @@ RSpec.describe Article, type: :model do
     subject.date = nil
     expect(subject).to_not be_valid
   end
+
+  it "is not valid without a status" do
+    subject.status = nil
+    expect(subject).to_not be_valid
+  end
 end
