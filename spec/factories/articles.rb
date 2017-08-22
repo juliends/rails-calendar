@@ -3,10 +3,7 @@ FactoryGirl.define do
     title { Faker::Hipster.sentence }
     content { Faker::Lorem.paragraph }
     sequence(:date) { |n| Date.today + n }
-
-    trait :unpublished do
-      status 0
-    end
+    status { 0 }
 
     trait :published do
       status 1

@@ -2,7 +2,7 @@ class Article < ApplicationRecord
 
   validates :title, :date, :status, presence: true
 
-  enum status: { pending: 0, published: 1 }
+  enum status: { unpublished: 0, published: 1 }
 
   # scope :published, -> { where(published: true) }
 
